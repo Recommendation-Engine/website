@@ -1,0 +1,21 @@
+header {
+    background-color: #EC268C;
+    height: 60px;
+    display: table;
+}
+
+header h1 {
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    color:#ffffff;
+}
+
+section {
+    width: 30%;
+    height: 100%;
+    padding-top: 10%;
+    position: relative;
+    margin: auto;
+    display: block;
+}
