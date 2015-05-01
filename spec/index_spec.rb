@@ -19,7 +19,9 @@ describe 'index page' do
   describe '#get_movies_titles' do
 
     it 'should return some movie titles' do
-      expect(get_movie_titles.count).to be(3883)
+      movie_titles = get_movie_titles
+      expect(movie_titles.count).to be(3883)
+      expect(movie_titles).to include('Toy Story')
     end
 
   end
