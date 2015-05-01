@@ -1,21 +1,21 @@
-header {
-    background-color: #EC268C;
-    height: 60px;
-    display: table;
+.header{
+    background: #ec008c;
+    margin-bottom: 0;
 }
 
-header h1 {
-    display: table-cell;
-    vertical-align: middle;
-    font-weight: bold;
-    color:#ffffff;
+.header-logo img{
+    height: 40px;
+    margin: 20px;
+}
+.header-heading{
+    color: white;
 }
 
-section {
-    width: 30%;
-    height: 100%;
-    padding-top: 10%;
-    position: relative;
-    margin: auto;
-    display: block;
+.left-panel{
+    background-color: #f6f6f6;
+    min-height:600px;
+}
+
+.right-panel{
+    min-height:600px;
 }
