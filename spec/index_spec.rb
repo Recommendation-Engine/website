@@ -16,12 +16,12 @@ describe 'index page' do
 
   end
 
-  describe '#get_movies_titles' do
+  describe '#get_movies' do
 
-    it 'should return some movie titles' do
-      movie_titles = get_movie_titles
-      expect(movie_titles.count).to be(3883)
-      expect(movie_titles).to include('Toy Story')
+    it 'should return all movies' do
+      movies = get_movies
+      expect(movies.count).to be(3883)
+      expect(movies).to include({:mid => 1, :title =>'Toy Story'})
     end
 
   end
