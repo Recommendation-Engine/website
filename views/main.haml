@@ -1,8 +1,7 @@
 %html
   %head
     %meta{:charset => "UTF-8"}
-      %link{:href => "/stylesheets/main.css", :rel => "stylesheet", :type => "text/css"}
-        %title Recommendation Engine
+      %title Recommendation Engine
   %body
     .header
       .header-logo
@@ -38,11 +37,12 @@
         .movie-scenario
           %h1 IS VIEWING...
           .dropdown
-            %select
+            %select#movie-selection
               %option{:value => "select"} Select A Movie
               -@movies.each do |movie|
-                %option{:value => "#{movie[:mid]}"} #{movie[:title]}
-          %img{:src => "assets/frozen.jpg"}
+                %option{:value => "{ \"mid\": #{movie[:mid]}, \"imgUrl\": \"#{movie[:imgUrl]}\"}"} #{movie[:title]}
+          %img#selected-movie-image{:src => "assets/frozen.jpg"}
       .right-panel
         %h1
           Recommendations
+        .products

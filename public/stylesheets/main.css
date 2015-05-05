@@ -55,21 +55,37 @@ body {
 }
 
 h1 {
-    font-family:"open sans";
+    font-family:"open sans", sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -.08em;
     font-size: 2em;
 }
 
+.profile {
+    margin-top: 20px;
+}
 .profile img {
     width: 80px;
     float: left;
 }
 .movie-scenario img {
     width: 100px;
+    margin-top: 20px;
 }
 
 .dropdown select {
     width: 280px;
+}
+
+.products img {
+    float: left;
+    margin-right: 20px;
+    height: 100px;
+    width: 80px;
+    margin-bottom: 15px;
+}
+
+.product {
+    height: 100px;
 }
