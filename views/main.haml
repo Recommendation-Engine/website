@@ -1,77 +1,48 @@
-<!doctype html>
 %html
   %head
     %meta{:charset => "UTF-8"}
-      %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-        %link{:href => "stylesheets/main.css", :rel => "stylesheet", :type => "text/css"}
-          %title RECOMMENDATION ENGINE
+      %link{:href => "/stylesheets/main.css", :rel => "stylesheet", :type => "text/css"}
+        %title Recommendation Engine
   %body
+    .header
+      .header-logo
+        %img{:src => "assets/ThoughtWorks.png"}
+      .header-heading
+        %h1 Recommendation Engine
     .container
-      %nav.header
-        .row
-          .col-md-3.header-logo
-            %img{:src => "assets/ThoughtWorks.png"}
-          .col-md-9.header-heading
-            %h1 RECOMMENDATION ENGINE
-      .col-md-12.column
-        .row.clearfix
-          .col-md-4.column.left-panel
-            .section.scenario
-              %h2 SCENARIO
-              .dropdown
-                %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
-                  Dropdown
-                  %span.caret
-                %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Action
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Another action
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Something else here
-                  %li{:role => "presentation"}
-                    %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Separated link
-              .row.profile
-                .user-image.col-md-3
-                  %img{:src => "assets/user-image.png"}
-                .user-details.col-md-9
-                  %table.table-responsive
-                    %tr
-                      %td Age:
-                      %td Unknown
-                    %tr
-                      %td Gender:
-                      %td Unknown
-                    %tr
-                      %td Categories:
-                      %td Unknown
-                    %tr
-                      %td Recent Purchases:
-                      %td Unknown
-            .section.viewing
-              %h2 IS VIEWING...
-              .dropdown
-                %a.btn.btn-default.dropdown-toggle{:href=>"#", "data-toggle"=>"dropdown"}
-                  Select A Movie
-                  %b.caret
-                %ul.dropdown-menu
-                  -@movies.each do |movie|
-                    %li
-                      %a{:href => "#{movie[:mid]}"} #{movie[:title]}
-              .movie-img
-                %img{:src => "assets/frozen.jpg"}
-          .col-md-8.column.right-panel
-            %h1 RECOMMENDED PRODUCTS
-            .products
-              -for i in 0..3
-                .row
-                  .col-md-2
-                    %img{:src => "assets/frozen.jpg"}
-                  .col-md-10
-                    %table
-                      %tr
-                        %td Name
-                      %tr
-                        %td Rating
-                      %tr
-                        %td Category
+      .left-panel
+        .user-scenario
+          %h1 User Scenario
+          .dropdown
+            %select
+              %option{:value => "volvo"} Volvo
+              %option{:value => "saab"} Saab
+              %option{:value => "opel"} Opel
+              %option{:value => "audi"} Audi
+          .profile
+            %img{:src => "assets/user-image.png"}
+            .user-details
+              %table
+                %tr
+                  %td Age:
+                  %td Unknown
+                %tr
+                  %td Gender:
+                  %td Unknown
+                %tr
+                  %td Categories:
+                  %td Unknown
+                %tr
+                  %td Recent Purchases:
+                  %td Unknown
+        .movie-scenario
+          %h1 IS VIEWING...
+          .dropdown
+            %select
+              %option{:value => "select"} Select A Movie
+              -@movies.each do |movie|
+                %option{:value => "#{movie[:mid]}"} #{movie[:title]}
+          %img{:src => "assets/frozen.jpg"}
+      .right-panel
+        %h1
+          Recommendations

@@ -1,5 +1,9 @@
-h1,h2{
-    font-family: "Open Sans",serif,sans-serif;
+@charset "UTF-8";
+/* CSS Document */
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
 }
 
 .header{
@@ -10,6 +14,7 @@ h1,h2{
 .header-logo {
     width: 180px;
     margin-right: 40px;
+    float: left;
 }
 
 .header-logo img{
@@ -19,70 +24,52 @@ h1,h2{
 .header-heading{
     color: white;
 }
+
 .header-heading h1{
     font-size:27px;
     font-weight: bolder;
     margin:0;
     line-height:65px;
 }
+.container {
+    width: 100%;
+    height: 100%;
+    clear: both;
+    min-width: 600px;
+}
 
-.left-panel{
+.left-panel {
+    position: absolute;
+    height: 100%;
     background-color: #f6f6f6;
-    height:100%;
-    padding-left: 5%;
-    padding-top: 5%;
+
+    padding: 60px 20px 20px 20px;
+    min-width: 280px;
 }
 
-.right-panel{
-    height:100%;
-    padding-left: 5%;
-    padding-top: 5%;
+.right-panel {
+    padding-top: 60px;
+    position: absolute;
+    margin-left: 350px;
+
 }
 
-.scenario {
-    height: 40%;
-}
-.scenario img{
-    width:100%;
-}
-
-h2 {
-    margin: 25px 0;
+h1 {
+    font-family:"open sans";
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -.08em;
+    font-size: 2em;
 }
 
-.profile {
-    margin-top: 8%;
+.profile img {
+    width: 80px;
+    float: left;
+}
+.movie-scenario img {
+    width: 100px;
 }
 
-.movie-img img {
-    height: 30%;
-    margin-top: 5%;
-}
-
-.viewing h2 {
-    margin-top: 0;
-}
-
-.products img {
-    height: 80px;
-}
-
-.products table {
-    height: 80px;
-}
-
-.products .row {
-    margin-bottom: 15px;
-}
-
-.right-panel h1{
-    margin-bottom: 30px;
-}
-
-.products .col-md-2 {
-    padding-right: 0;
-}
-
-.products .col-md-10 {
-    padding-left: 0;
+.dropdown select {
+    width: 280px;
 }
