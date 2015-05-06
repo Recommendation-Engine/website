@@ -1,11 +1,11 @@
 %html
   %head
-    %meta{:charset => "UTF-8"}
+    %meta{:charset => 'UTF-8'}
       %title Recommendation Engine
   %body
     .header
       .header-logo
-        %img{:src => "assets/ThoughtWorks.png"}
+        %img{:src => 'assets/ThoughtWorks.png'}
       .header-heading
         %h1 Recommendation Engine
     .container
@@ -14,12 +14,12 @@
           %h1 User Scenario
           .dropdown
             %select
-              %option{:value => "volvo"} Volvo
-              %option{:value => "saab"} Saab
-              %option{:value => "opel"} Opel
-              %option{:value => "audi"} Audi
+              %option{:value => 'volvo'} Volvo
+              %option{:value => 'saab'} Saab
+              %option{:value => 'opel'} Opel
+              %option{:value => 'audi'} Audi
           .profile
-            %img{:src => "assets/user-image.png"}
+            %img{:src => 'assets/user-image.png'}
             .user-details
               %table
                 %tr
@@ -38,10 +38,10 @@
           %h1 IS VIEWING...
           .dropdown
             %select#movie-selection
-              %option{:value => "select"} Select A Movie
+              %option{:value => 'select'} Select A Movie
               -@movies.each do |movie|
-                %option{:value => "{ \"mid\": #{movie[:mid]}, \"imgUrl\": \"#{movie[:imgUrl]}\"}"} #{movie[:title]}
-          %img#selected-movie-image{:src => "assets/frozen.jpg"}
+                %option{:value => "#{movie[:mid]}"} #{movie[:title]}
+          .selected-movie-details
       .right-panel
         %h1
           Recommendations

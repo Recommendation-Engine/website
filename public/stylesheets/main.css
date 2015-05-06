@@ -69,9 +69,19 @@ h1 {
     width: 80px;
     float: left;
 }
-.movie-scenario img {
-    width: 100px;
-    margin-top: 20px;
+.selected-movie-table img {
+    float: left;
+    margin-right: 20px;
+    height: 100px;
+    width: 80px;
+    margin-top: 15px;
+}
+
+.selected-movie-table table {
+    height: 100px;
+    margin-top: 15px;
+    margin-left: 20px;
+    width: 150px;
 }
 
 .dropdown select {
