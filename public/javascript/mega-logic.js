@@ -1,29 +1,28 @@
 $(function() {
     $('#movie-selection').change(function() {
-        // get value from drop down
-        var movieTuple = $.parseJSON($('#movie-selection').val());
-        var selectedMovieId = movieTuple.mid;
-        var selectedMovieImgUrl = movieTuple.imgUrl;
+        var selectedMovieId = $('#movie-selection').val();
 
-        $('#selected-movie-image').attr('src',selectedMovieImgUrl);
+        function render_movie_details(element, classname) {
+            $("<tr><td>" +
+                "<img src=" + element.imgUrl + " />" +
+                "<table>" +
+                "<tr><td>" + element.title + "</td></tr>" +
+                "<tr><td>" + element.rating + "</td></tr>" +
+                "<tr><td>" + element.genre + "</td></tr>" +
+                "</table>" +
+                "</td></tr>").appendTo(classname)
+        }
 
-        // make request to API for recommendations
         $.get('/movies/' + selectedMovieId, function(data){
-            // clear products
+            $('.selected-movie-details').empty();
+            $('.selected-movie-details').append("<table class='selected-movie-table'/>");
+            render_movie_details(data.selected_movie,'.selected-movie-table')
+
             $('.products').empty();
             $('.products').append("<table class='product-table'/>");
 
-            // foreach model element
-            $.each(data, function(index, element){
-                // add row to table
-                $("<tr><td>" +
-                    "<img src=" + element.imgUrl + " />" +
-                    "<table>" +
-                        "<tr><td>" + element.title + "</td></tr>" +
-                        "<tr><td>" + element.rating + "</td></tr>" +
-                        "<tr><td>" + element.genre + "</td></tr>" +
-                    "</table>" +
-                "</td></tr>").appendTo('.product-table')
+            $.each(data.top_5_movies, function(index, element){
+                render_movie_details(element,'.product-table');
             });
 
         });
