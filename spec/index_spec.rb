@@ -23,6 +23,13 @@ describe 'index page' do
     end
   end
 
+  describe '/users/:uid' do
+    it 'returns OK' do
+      get '/users/1'
+      expect(last_response).to be_ok()
+    end
+  end
+
   describe '#get_recommended_movies' do
     it 'the first return element should be selected movie' do
       movies = get_recommended_movies(1)
@@ -57,4 +64,21 @@ describe 'index page' do
     end
   end
 
+  describe '#get_users' do
+    it 'should return all users' do
+      users = get_users
+      expect(users.count).to be(6040)
+      expect(users.first()).to eq({uid:1})
+    end
+  end
+
+  describe '#get_user_by_id' do
+    it 'should return user by user id' do
+      user = get_user_by_id(1)
+      expect(user[:uid]).to be(1)
+      expect(user[:gender]).to eq('F')
+      expect(user[:zipcode]).to eq('48067')
+      expect(user[:age]).to eq([0,18])
+    end
+  end
 end
