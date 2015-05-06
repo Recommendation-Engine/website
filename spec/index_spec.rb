@@ -24,23 +24,37 @@ describe 'index page' do
   end
 
   describe '#get_recommended_movies' do
+    it 'the first return element should be selected movie' do
+      movies = get_recommended_movies(1)
+      expect(movies[:selected_movie][:mid]).to be(1)
+    end
+
     it 'should return top 5 recommended movies' do
       movies = get_recommended_movies(1)
-      expect(movies.count).to be(5)
+      expect(movies[:top_5_movies].count).to be(5)
+    end
+
+  end
+
+  describe '#get_movie_by_id' do
+    it 'should return movie with correct fields' do
+      movie = get_movie_by_id(1)
+      expect(movie).to eq({mid: 1,
+                           title: 'Toy Story',
+                           imgUrl: 'http://ia.media-imdb.com/images/M/MV5BMTgwMjI4MzU5N15BMl5BanBnXkFtZTcwMTMyNTk3OA@@._V1_SX300.jpg',
+                           rating: '8.3',
+                           genre: 'Animation, Adventure, Comedy'})
     end
 
   end
 
   describe '#get_movies' do
-
     it 'should return all movies' do
       movies = get_movies
       expect(movies.count).to be(3883)
       expect(movies.first()).to eq({mid: 1,
-                                 title: 'Toy Story',
-                                 imgUrl: 'http://ia.media-imdb.com/images/M/MV5BMTgwMjI4MzU5N15BMl5BanBnXkFtZTcwMTMyNTk3OA@@._V1_SX300.jpg'})
+                                 title: 'Toy Story'})
     end
-
   end
 
 end

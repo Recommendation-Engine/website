@@ -7,24 +7,27 @@ require 'json'
 def get_movies
   movies = @@client[:movies].find
   movies.map{|movie| {mid: movie['mid'],
-                      title: movie['meta']['Title'],
-                      imgUrl: movie['meta']['Poster']}}
+                      title: movie['meta']['Title']}}
+end
+
+def get_movie_by_id(mid)
+  movie = @@client[:movies].find({mid: mid}).first()
+  {
+      mid: movie['mid'],
+      title: movie['meta']['Title'],
+      rating: movie['meta']['imdbRating'],
+      genre: movie['meta']['Genre'],
+      imgUrl: movie['meta']['Poster']
+  }
 end
 
 def get_recommended_movies(selected_mid)
-  top_5_mid = @@client[:m2m].find({mid: selected_mid}).first()['movies'].first(5)
+  selected_movie = get_movie_by_id(selected_mid)
 
-  top_5_mid
-    .map{ |mid| @@client[:movies].find({mid: mid}).first() }
-    .map{ |movie|
-      {
-          mid: movie['mid'],
-          title: movie['meta']['Title'],
-          rating: movie['meta']['imdbRating'],
-          genre: movie['meta']['Genre'],
-          imgUrl: movie['meta']['Poster']
-      }
-  }
+  top_5_mid = @@client[:m2m].find({mid: selected_mid}).first()['movies'].first(5)
+  top_5_movies = top_5_mid.map{|mid| get_movie_by_id(mid)}
+
+  {selected_movie: selected_movie, top_5_movies: top_5_movies}
 end
 
 
