@@ -64,10 +64,12 @@ h1 {
 
 .profile {
     margin-top: 20px;
+    height: 100px;
 }
 .profile img {
     width: 80px;
     float: left;
+    margin-right: 20px;
 }
 .selected-movie-table img {
     float: left;

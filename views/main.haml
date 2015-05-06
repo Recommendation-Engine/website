@@ -13,27 +13,13 @@
         .user-scenario
           %h1 User Scenario
           .dropdown
-            %select
-              %option{:value => 'volvo'} Volvo
-              %option{:value => 'saab'} Saab
-              %option{:value => 'opel'} Opel
-              %option{:value => 'audi'} Audi
+            %select#user-selection
+              %option{:value => 'select'} Select A User
+              -@users.each do |user|
+                %option{:value => "#{user[:uid]}"} #{user[:uid]}
           .profile
             %img{:src => 'assets/user-image.png'}
             .user-details
-              %table
-                %tr
-                  %td Age:
-                  %td Unknown
-                %tr
-                  %td Gender:
-                  %td Unknown
-                %tr
-                  %td Categories:
-                  %td Unknown
-                %tr
-                  %td Recent Purchases:
-                  %td Unknown
         .movie-scenario
           %h1 IS VIEWING...
           .dropdown
