@@ -1,7 +1,7 @@
 $(function() {
     function render_movie_details(element, classname) {
         $("<tr><td>" +
-            "<img src=" + element.imgUrl + " />" +
+            "<img src=" + (!element.imgUrl) ? 'assets/movie-not-found.jpg' : element.imgUrl + " />" +
             "<table>" +
             "<tr><td>" + element.title + "</td></tr>" +
             "<tr><td>" + element.rating + "</td></tr>" +
