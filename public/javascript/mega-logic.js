@@ -1,6 +1,6 @@
 $(function() {
     function render_movie_details(element, classname) {
-        var imageUrl = (!element.imgUrl) ? "assets/movie-not-found.jpg" : element.imgUrl;
+        var imageUrl = (element.imgUrl == "N/A") ? "assets/movie-not-found.jpg" : element.imgUrl;
 
         $("<tr><td>" +
             "<img src=" + imageUrl + " />" +
