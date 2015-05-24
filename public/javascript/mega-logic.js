@@ -3,7 +3,10 @@ $(function() {
         var imageUrl = (element.imgUrl == "N/A") ? "assets/movie-not-found.jpg" : element.imgUrl;
 
         $("<tr><td>" +
+            "<a href=" + imageUrl + " class=\"hvrlink\" target=\"_blank\">" +
             "<img src=" + imageUrl + " />" +
+            "</a>" +
+            "<div class=\"hover-pane\">" + element.title +  "</div>" +
             "<table>" +
             "<tr><td>" + element.title + "</td></tr>" +
             "<tr><td>" + element.rating + "</td></tr>" +

@@ -101,3 +101,28 @@ h1 {
 .product {
     height: 100px;
 }
+
+.hover-pane {
+    display: none;
+    color: #414141;
+    background: #f1f1f1;
+    border: 1px solid #a9a9a9;
+    position: absolute;
+    left: 20px;
+    margin-top: 20px;
+    z-index: 99999;
+    width: 230px;
+    padding: 6px 8px;
+    text-align: left;
+    -webkit-box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
+    box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
+}
+
+/** hover styles **/
+a.hvrlink:hover + .hover-pane {
+    display: block;
+}
+.hover-pane:hover {
+    display: block;
+}
