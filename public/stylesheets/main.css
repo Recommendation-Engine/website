@@ -31,14 +31,14 @@ h1, h2, h3, h4, h5 {
 }
 
 .ui.card.small-card, .ui.cards>.card.small-card {
-    width: 300px;
+    width: 230px;
 }
 .ui.card.small-card>.description, .ui.cards>.card.small-card>.description {
     text-align: left;
 }
 
 .ui.card.small-card, .ui.cards>.card.small-card>img{
-    height: 300px;
+    height: 230px;
 }
 
 .ui.link.cards.card-list{

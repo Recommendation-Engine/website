@@ -43,14 +43,14 @@ end
 def get_recommended_movies(selected_mid)
   selected_movie = get_movie_by_id(selected_mid)
 
-  top_5_mid = @@client[:m2m].find({mid: selected_mid}).first['movies'].first(6)
+  top_5_mid = @@client[:m2m].find({mid: selected_mid}).first['movies'].first(8)
   top_5_movies = top_5_mid.map{|mid| get_movie_by_id(mid)}
 
   {selected_movie: selected_movie, top_5_movies: top_5_movies}
 end
 
 def get_movies_for_user(selected_uid)
-  top_5_mids = @@client[:m2u].find({uid: selected_uid}).first['movies'].first(6)
+  top_5_mids = @@client[:m2u].find({uid: selected_uid}).first['movies'].first(8)
   top_5_movies = top_5_mids.map{|mid| get_movie_by_id(mid)}
 
   {selected_user: get_user_by_id(selected_uid),top_5_movies: top_5_movies}

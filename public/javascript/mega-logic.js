@@ -59,6 +59,7 @@ $(function() {
         $('#user').addClass('active');
         $('#user-selection').show();
         $('#movie-selection').hide();
+        $('#user-selection').val("select");
         $('.search-creteria').empty();
         $('.card-list').empty();
     }
@@ -119,6 +120,7 @@ $(function() {
         $('#movie').addClass('active');
         $('#user-selection').hide();
         $('#movie-selection').show();
+        $('#movie-selection').val("select");
         $('.search-creteria').empty();
         $('.card-list').empty();
     });
