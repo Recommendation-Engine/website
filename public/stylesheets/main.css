@@ -1,128 +1,61 @@
 @charset "UTF-8";
-/* CSS Document */
-body {
-    padding: 0;
+
+*[:not(i)] {
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 300 !important;
+}
+
+.ui.secondary.pointing.menu .active.item {
+    color: #202C3C !important;
+    border-color: #202C3C !important;
+}
+
+.ui.secondary.pointing.menu .item {
+    color: rgba(34,36,38,.3) !important;
+}
+
+.heading{
+    background: #202C3C;
+}
+
+.heading img{
+    width: 170px;
+    padding: 12px;
+}
+
+.ui.grid.main-content {
+    padding: 1em 4em;
+}
+
+.ui.card.small-card, .ui.cards>.card.small-card {
+    width: 232px;
+}
+
+.ui.card.small-card, .ui.cards>.card.small-card>img{
+    height: 232px;
+}
+
+.ui.link.cards.card-list{
+    padding-top: 54px;    
+}
+
+.ui.card>.content>.header, .ui.cards>.card>.content>.header {
+    color: #202C3C !important;
+}
+
+.ui.card.user-detail-card {
+    width: 311px;
     margin: 0;
-    height: 100%;
 }
 
-.header{
-    background: #FD0089;
-    margin-bottom: 0;
+.ui.card.movie-detail-card {
+    width: 311px;
+    margin: 0;
 }
 
-.header-logo {
-    width: 180px;
-    margin-right: 40px;
-    float: left;
-}
-
-.header-logo img{
-    height: 25px;
-    margin: 20px;
-}
-.header-heading{
-    color: white;
-}
-
-.header-heading h1{
-    font-size:27px;
-    font-weight: bolder;
-    margin:0;
-    line-height:65px;
-}
-.container {
-    width: 100%;
-    height: 100%;
-    clear: both;
-    min-width: 600px;
-}
-
-.left-panel {
-    position: absolute;
-    height: 100%;
-    background-color: #f6f6f6;
-
-    padding: 60px 20px 20px 20px;
-    min-width: 280px;
-}
-
-.right-panel {
-    padding-top: 60px;
-    position: absolute;
-    margin-left: 350px;
-
-}
-
-h1 {
-    font-family:"open sans", sans-serif;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -.08em;
-    font-size: 2em;
-}
-
-.profile {
-    margin-top: 20px;
-    height: 100px;
-}
-.profile img {
-    width: 80px;
-    float: left;
-    margin-right: 20px;
-}
-.selected-movie-table img {
-    float: left;
-    margin-right: 20px;
-    height: 100px;
-    width: 80px;
-    margin-top: 15px;
-}
-
-.selected-movie-table table {
-    height: 100px;
-    margin-top: 15px;
-    margin-left: 20px;
-    width: 150px;
-}
-
-.dropdown select {
-    width: 280px;
-}
-
-.products img {
-    float: left;
-    margin-right: 20px;
-    height: 100px;
-    width: 80px;
-    margin-bottom: 15px;
-}
-
-.product {
-    height: 100px;
-}
-
-.hover-pane {
-    display: none;
-    color: #414141;
-    background: #f1f1f1;
-    border: 1px solid #a9a9a9;
-    position: absolute;
-    left: 20px;
-    margin-top: 20px;
-    z-index: 99999;
-    width: 230px;
-    padding: 6px 8px;
-    text-align: left;
-    -webkit-box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
-    -moz-box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
-    box-shadow: 1px 3px 3px rgba(0,0,0,0.4);
-}
-
-/** hover styles **/
-a.hvrlink:hover + .hover-pane {
-    display: block;
-}
-.hover-pane:hover {
-    display: block;
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+    height: 360px !important;
 }

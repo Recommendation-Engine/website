@@ -3,32 +3,25 @@
     %meta{:charset => 'UTF-8'}
       %title Recommendation Engine
   %body
-    .header
-      .header-logo
-        %img{:src => 'assets/ThoughtWorks.png'}
-      .header-heading
-        %h1 Recommendation Engine
-    .container
-      .left-panel
-        .user-scenario
-          %h1 User Scenario
-          .dropdown
-            %select#user-selection
-              %option{:value => 'select'} Select A User
-              -@users.each do |user|
-                %option{:value => "#{user[:uid]}"} #{user[:uid]}
-          .profile
-            %img{:src => 'assets/user-image.png'}
-            .user-details
-        .movie-scenario
-          %h1 IS VIEWING...
-          .dropdown
-            %select#movie-selection
-              %option{:value => 'select'} Select A Movie
-              -@movies.each do |movie|
-                %option{:value => "#{movie[:mid]}"} #{movie[:title]}
-          .selected-movie-details
-      .right-panel
-        %h1
-          Recommendations
-        .products
+    .heading
+      %img{:src => 'assets/ThoughtWorks.png'}
+    .ui.grid.main-content
+      .four.wide.column
+        .ui.secondary.pointing.menu
+          %a.item#user.active
+            %h2 User
+          %a.item#movie
+            %h2 Movie
+        .ui.segment.select-panel  
+          %select.ui.fluid.search.selection.dropdown#user-selection
+            %option{:value => 'select'} Select A User
+            -@users.each do |user|
+              %option{:value => "#{user[:uid]}"} #{user[:uid]}
+          %select.ui.fluid.search.selection.dropdown#movie-selection
+            %option{:value => 'select'} Select A Movie
+            -@movies.each do |movie|
+              %option{:value => "#{movie[:mid]}"} #{movie[:title]}
+        .search-creteria
+      .twelve.wide.column.center.aligned
+        .ui.link.cards.card-list 
+
