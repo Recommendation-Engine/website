@@ -1,0 +1,7 @@
+<div class="ui link cards card-list">
+  {{#each this}}
+  	<div class="card small-card">
+    	{{> movieTemplate this}}
+    </div>
+  {{/each}}
+</div>

@@ -1,0 +1,24 @@
+<div class="image">
+  <img src="{{movieUrl imgUrl}}"/>
+</div>
+<div class="content">
+  <div class="header">{{title}}</div>
+  <div class="description" style="align: left">
+    <div class="rating">          
+      <b>Rating:</b>
+      {{rating}}
+    </div>
+    <div class="director">
+      <b>Director:</b>
+      {{director}}
+    </div>
+    <div class="actors">          
+      <b>Actors:</b>
+      {{actors}}
+    </div>
+    <div class="genre">          
+      <b>Genre:</b>
+      {{genre}}
+    </div>
+  </div>
+</div>

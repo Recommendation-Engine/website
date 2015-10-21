@@ -1,0 +1,27 @@
+<div class="ui card user-detail-card">
+  <div class="image">
+    <img src="{{imgSrc gender}}"/>
+  </div>
+  <div class="content user-details">
+    <div class="header">Selected User</div>
+    <div class="age">        
+      <b>Age:</b>
+      {{age}}
+    </div>
+    <div class="gender">
+      <b>Gender:</b>
+      {{gender}}
+    </div>
+    <div class="zipcode">        
+      <b>Zip Code:</b>
+      {{zipcode}}
+    </div>
+    <div class="occupation">
+      <b>Occupation:</b>
+      {{occupation}}
+    </div>
+    <div class="interest">
+      <b>Interests:</b>
+    </div>
+  </div>
+</div>
