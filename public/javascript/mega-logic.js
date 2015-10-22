@@ -33,18 +33,8 @@ $(function() {
             .start();
     }
 
-    function active_user_search(){
-        $('#movie').removeClass('active');
-        $('#user').addClass('active');
-        $('#user-selection').show();
-        $('#movie-selection').hide();
-        $('#user-selection').val("select");
-        $('.search-creteria').empty();
-        $('.card-list').empty();
-    }
-
     $('#movie-selection').change(function() {
-        var selectedMovieId = $('#movie-selection').val();
+        var selectedMovieId = $('input[name=movie]').val();
 
         $.get('/movies/' + selectedMovieId, function(data){
             renderMovie(data.selected_movie);
@@ -53,12 +43,9 @@ $(function() {
     });
 
     $('#user-selection').change(function() {
-        var selectedUserId = $('#user-selection').val();
+        var selectedUserId = $('input[name=user]').val();
         $.get('/users/' + selectedUserId, function(data){
             renderUser(data.selected_user);
-            
-            //word_cloud(data.selected_user.genre)
-
             renderMovies(data.top_5_movies)
         });
     });
@@ -127,7 +114,22 @@ $(function() {
         
     }
 
-    $('#movie').click(function() {
+    function active_user_search(){
+        $('#movie').removeClass('active');
+        $('#user').addClass('active');
+        $('#user-selection').show();
+        $('#movie-selection').hide();
+        $('#user-selection').val("select");
+        $('.search-creteria').empty();
+        $('.card-list').empty();
+    }
+
+    $('#user').on("click", function() {
+        active_user_search();
+    });
+
+
+    $('#movie').on("click", function() {
         $('#user').removeClass('active');
         $('#movie').addClass('active');
         $('#user-selection').hide();
@@ -137,11 +139,10 @@ $(function() {
         $('.card-list').empty();
     });
 
-    $('#user').click(function() {
-        active_user_search();
-    });
+    $('#user-selection').dropdown();
+    $('#movie-selection').dropdown();
 
-    $( document ).ready(function() {
+    $(document).ready(function() {
         active_user_search();
     });
 });
