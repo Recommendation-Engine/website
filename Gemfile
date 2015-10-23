@@ -4,6 +4,7 @@ gem 'sinatra'
 gem 'haml'
 gem 'mongo', '~> 2.0'
 gem 'json'
+gem 'puma'
 
 group :dev do
   gem 'rake'

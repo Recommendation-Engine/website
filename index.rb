@@ -1,8 +1,10 @@
 require 'sinatra'
 require 'mongo'
+require 'haml'
 require 'json'
 
-@@client = Mongo::Client.new(['127.0.0.1:27017'], database: 'recommendation_engine')
+mongo_url = ENV['MONGOLAB_URI'] || 'mongodb://127.0.0.1:27017/recommendation_engine'
+@@client = Mongo::Client.new(mongo_url)
 
 def get_movies
   movies = @@client[:movies].find
@@ -59,6 +61,7 @@ end
 get '/' do
   @movies = get_movies.take(10)
   @users = get_users.take(10)
+  puts "@users #{@users.map {|u| u[:uid]}}"
   haml :main
 end
 
