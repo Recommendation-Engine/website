@@ -33,23 +33,6 @@ $(function() {
             .start();
     }
 
-    $('#movie-selection').change(function() {
-        var selectedMovieId = $('input[name=movie]').val();
-
-        $.get('/movies/' + selectedMovieId, function(data){
-            renderMovie(data.selected_movie);
-            renderMovies(data.top_5_movies);
-        });
-    });
-
-    $('#user-selection').change(function() {
-        var selectedUserId = $('input[name=user]').val();
-        $.get('/users/' + selectedUserId, function(data){
-            renderUser(data.selected_user);
-            renderMovies(data.top_5_movies)
-        });
-    });
-
     function renderUser(user) {
         if (templates['user']) {        
             $('.search-creteria').html(templates['user'](user));
@@ -115,32 +98,51 @@ $(function() {
     }
 
     function active_user_search(){
-        $('#movie').removeClass('active');
-        $('#user').addClass('active');
+        $('#movie-menu').removeClass('active');
+        $('#user-menu').addClass('active');
         $('#user-selection').show();
         $('#movie-selection').hide();
-        $('#user-selection').val("select");
+        $('#user-selection .dropdown').dropdown('clear selected');
         $('.search-creteria').empty();
         $('.card-list').empty();
     }
 
-    $('#user').on("click", function() {
+    $('#user-menu').on("click", function(event) {
         active_user_search();
     });
 
 
-    $('#movie').on("click", function() {
-        $('#user').removeClass('active');
-        $('#movie').addClass('active');
+    $('#movie-menu').on("click", function() {
+        $('#user-menu').removeClass('active');
+        $('#movie-menu').addClass('active');
         $('#user-selection').hide();
         $('#movie-selection').show();
-        $('#movie-selection').val("select");
+        $('#movie-selection .dropdown').dropdown('clear selected');
         $('.search-creteria').empty();
         $('.card-list').empty();
+    }); 
+
+    $('#movie-selection .dropdown').dropdown({
+        onChange: function(movieId) {
+            if (movieId != '') {
+                $.get('/movies/' + movieId, function(data){
+                    renderMovie(data.selected_movie);
+                    renderMovies(data.movies);
+                });
+            }
+        }
     });
 
-    $('#user-selection').dropdown();
-    $('#movie-selection').dropdown();
+    $('#user-selection .dropdown').dropdown({
+        onChange: function(userId) {
+            if (userId != '') {
+                $.get('/users/' + userId, function(data){
+                    renderUser(data.selected_user);
+                    renderMovies(data.movies)
+                });
+            }
+        }
+    });
 
     $(document).ready(function() {
         active_user_search();

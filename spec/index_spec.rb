@@ -36,9 +36,9 @@ describe 'index page' do
       expect(movies[:selected_movie][:mid]).to be(1)
     end
 
-    it 'should return top 5 recommended movies' do
+    it 'should return top 8 recommended movies' do
       movies = get_recommended_movies(1)
-      expect(movies[:top_5_movies].count).to be(5)
+      expect(movies[:movies].count).to be(8)
     end
 
   end
@@ -46,11 +46,15 @@ describe 'index page' do
   describe '#get_movie_by_id' do
     it 'should return movie with correct fields' do
       movie = get_movie_by_id(1)
-      expect(movie).to eq({mid: 1,
-                           title: 'Toy Story',
-                           imgUrl: 'http://ia.media-imdb.com/images/M/MV5BMTgwMjI4MzU5N15BMl5BanBnXkFtZTcwMTMyNTk3OA@@._V1_SX300.jpg',
-                           rating: '8.3',
-                           genre: 'Animation, Adventure, Comedy'})
+      expect(movie).to include(
+          mid: 1,
+          title: 'Toy Story',
+          imgUrl: 'http://ia.media-imdb.com/images/M/MV5BMTgwMjI4MzU5N15BMl5BanBnXkFtZTcwMTMyNTk3OA@@._V1_SX300.jpg',
+          rating: '8.3',
+          actors: "Tom Hanks, Tim Allen, Don Rickles, Jim Varney",
+          director: "John Lasseter",
+          genre: 'Animation, Adventure, Comedy'
+        )
     end
 
   end

@@ -8,24 +8,20 @@
     .ui.grid.main-content
       .four.wide.column
         .ui.secondary.pointing.menu
-          %a.item#user
+          %a.item#user-menu
             %h2 User
-          %a.item#movie
+          %a.item#movie-menu
             %h2 Movie
-        .ui.segment.select-panel 
-          .ui.fluid.selection.dropdown#user-selection
-            %input{:name => "user", :type => "hidden"}
-              %i.dropdown.icon
-              .default.text Select A User
-              .menu
-                -@users.each do |user|
-                  .item{"data-value" => "#{user[:uid]}"} #{user[:uid]}
-          .ui.fluid.selection.dropdown#movie-selection
-            %input{:name => "movie", :type => "hidden"}
-              %i.dropdown.icon
-              .default.text Select A Movie
-              .menu
-                -@movies.each do |movie|
-                  .item{"data-value" => "#{movie[:mid]}"} #{movie[:title]}
+        .ui.segment.select-panel
+          #user-selection
+            %select.ui.fluid.search.dropdown
+              %option{:value => ''} Select A User
+              -@users.each do |user|
+                %option{:value => "#{user[:uid]}"} #{user[:uid]}
+          #movie-selection
+            %select.ui.fluid.search.dropdown
+              %option{:value => ''} Select A movie
+              -@movies.each do |movie|
+                %option{:value => "#{movie[:mid]}"} #{movie[:title]}
         .search-creteria
       .twelve.wide.column.center.aligned.movie-list
