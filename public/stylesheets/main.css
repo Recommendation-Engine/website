@@ -1,20 +1,12 @@
 @charset "UTF-8";
 
-*[:not(i)] {
-    font-family: 'Open Sans', sans-serif !important;
+#user-menu.active, #movie-menu.active{
+    color: #202C3C;
+    border-color: #202C3C;
 }
 
-h1, h2, h3, h4, h5 {
-    font-weight: 300 !important;
-}
-
-.ui.secondary.pointing.menu .active.item {
-    color: #202C3C !important;
-    border-color: #202C3C !important;
-}
-
-.ui.secondary.pointing.menu .item {
-    color: rgba(34,36,38,.3) !important;
+#user-menu, #movie-menu {
+    color: rgba(34,36,38,.3);
 }
 
 .heading{
@@ -45,8 +37,8 @@ h1, h2, h3, h4, h5 {
     padding-top: 54px;    
 }
 
-.ui.card>.content>.header, .ui.cards>.card>.content>.header {
-    color: #202C3C !important;
+.movie-title {
+    color: #202C3C;
 }
 
 .ui.card.user-detail-card {
@@ -59,6 +51,6 @@ h1, h2, h3, h4, h5 {
     margin: 0;
 }
 
-.ui.card>.image>img, .ui.cards>.card>.image>img {
-    height: 360px !important;
+.ui.card>.image>.movie-image, .ui.cards>.card>.image>.movie-image {
+    height: 360px;
 }
