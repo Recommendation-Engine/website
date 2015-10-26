@@ -61,7 +61,6 @@ end
 get '/' do
   @movies = get_movies.take(10)
   @users = get_users.take(10)
-  puts "@users #{@users.map {|u| u[:uid]}}"
   haml :main
 end
 

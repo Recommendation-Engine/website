@@ -59,7 +59,7 @@ $(function() {
             if (movieUrl == 'N/A') {
                 return "/assets/movie-not-found.png";
             } else {
-                return movieUrl;
+                return movieUrl.replace(/http:\/\/ia.media-imdb.com\/images\/M/i, "/images");
             }
         });
     }
